@@ -15,7 +15,6 @@ import {
   AlertTriangle,
   CheckCircle,
   Clock,
-  Cow,
   Home,
   CloudRain,
   Eye,
@@ -25,7 +24,8 @@ import {
   Waves,
   Camera,
   Brain,
-  Database
+  Database,
+  Heart
 } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -267,7 +267,7 @@ const Index = () => {
           {/* Livestock Monitoring */}
           <Card className="p-6 bg-white shadow-lg">
             <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-              <Cow className="h-5 w-5 text-purple-500 mr-2" />
+              <Heart className="h-5 w-5 text-purple-500 mr-2" />
               Livestock Monitoring
             </h3>
             <div className="space-y-3">
