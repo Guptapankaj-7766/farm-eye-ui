@@ -1,165 +1,219 @@
-
 import React, { useState, useEffect } from 'react';
-import { 
-  Thermometer, 
-  Droplets, 
-  Sun, 
-  Wind, 
-  Sprout, 
-  BarChart3, 
-  MapPin, 
-  Wifi, 
-  Battery,
-  Leaf,
-  TrendingUp,
-  AlertTriangle,
-  CheckCircle,
-  Clock,
-  Home,
-  CloudRain,
-  Eye,
-  Zap,
-  Activity,
-  Shield,
-  Waves,
-  Camera,
-  Brain,
-  Database,
-  Heart
-} from 'lucide-react';
+import { Thermometer, Droplets, Sun, Wind, Sprout, BarChart3, MapPin, Wifi, Battery, Leaf, TrendingUp, AlertTriangle, CheckCircle, Clock, Home, CloudRain, Eye, Zap, Activity, Shield, Waves, Camera, Brain, Database, Heart } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-
 const Index = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
-
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
-
-  const environmentalSensors = [
-    { 
-      id: 1, 
-      name: 'Temperature', 
-      value: '24°C', 
-      icon: Thermometer, 
-      color: 'text-orange-500',
-      bgColor: 'bg-orange-50',
-      status: 'optimal',
-      trend: '+2°C from yesterday',
-      location: 'Greenhouse A'
-    },
-    { 
-      id: 2, 
-      name: 'Humidity', 
-      value: '68%', 
-      icon: Droplets, 
-      color: 'text-blue-500',
-      bgColor: 'bg-blue-50',
-      status: 'normal',
-      trend: '+5% from yesterday',
-      location: 'Field B'
-    },
-    { 
-      id: 3, 
-      name: 'Light Intensity', 
-      value: '850 lux', 
-      icon: Sun, 
-      color: 'text-yellow-500',
-      bgColor: 'bg-yellow-50',
-      status: 'good',
-      trend: '+120 lux from yesterday',
-      location: 'Greenhouse A'
-    },
-    { 
-      id: 4, 
-      name: 'Soil Moisture', 
-      value: '42%', 
-      icon: Sprout, 
-      color: 'text-brown-500',
-      bgColor: 'bg-amber-50',
-      status: 'low',
-      trend: '-8% from yesterday',
-      location: 'Field C'
-    },
-    { 
-      id: 5, 
-      name: 'Air Quality (CO2)', 
-      value: '380 ppm', 
-      icon: Wind, 
-      color: 'text-green-500',
-      bgColor: 'bg-green-50',
-      status: 'excellent',
-      trend: '-20 ppm from yesterday',
-      location: 'Greenhouse B'
-    },
-    { 
-      id: 6, 
-      name: 'Water Quality pH', 
-      value: '6.8', 
-      icon: BarChart3, 
-      color: 'text-purple-500',
-      bgColor: 'bg-purple-50',
-      status: 'optimal',
-      trend: '+0.2 from yesterday',
-      location: 'Irrigation System'
-    }
-  ];
-
-  const cropHealthData = [
-    { id: 1, crop: 'Tomatoes', health: 'excellent', diseaseRisk: 'low', yieldPrediction: '95%', lastScanned: '2 hours ago' },
-    { id: 2, crop: 'Corn', health: 'good', diseaseRisk: 'medium', yieldPrediction: '87%', lastScanned: '4 hours ago' },
-    { id: 3, crop: 'Lettuce', health: 'excellent', diseaseRisk: 'low', yieldPrediction: '92%', lastScanned: '1 hour ago' },
-    { id: 4, crop: 'Carrots', health: 'good', diseaseRisk: 'low', yieldPrediction: '89%', lastScanned: '3 hours ago' }
-  ];
-
-  const livestockData = [
-    { id: 1, animal: 'Dairy Cows', count: 45, health: 'healthy', feeding: 'automated', lastCheck: '30 min ago' },
-    { id: 2, animal: 'Sheep', count: 120, health: 'healthy', feeding: 'scheduled', lastCheck: '1 hour ago' },
-    { id: 3, animal: 'Chickens', count: 200, health: 'excellent', feeding: 'automated', lastCheck: '15 min ago' }
-  ];
-
-  const weatherData = [
-    { parameter: 'Rainfall', value: '2.4mm', status: 'low', forecast: '15mm expected' },
-    { parameter: 'Wind Speed', value: '12 km/h', status: 'normal', forecast: 'Increasing to 18 km/h' },
-    { parameter: 'UV Index', value: '6.2', status: 'high', forecast: 'Peak at 8.1 today' }
-  ];
-
-  const automationSystems = [
-    { system: 'Irrigation Control', status: 'active', mode: 'auto', efficiency: '94%' },
-    { system: 'Greenhouse Climate', status: 'active', mode: 'auto', efficiency: '91%' },
-    { system: 'Livestock Feeding', status: 'active', mode: 'scheduled', efficiency: '98%' },
-    { system: 'Pest Control', status: 'standby', mode: 'manual', efficiency: '85%' }
-  ];
-
-  const alerts = [
-    { id: 1, type: 'warning', message: 'Soil moisture low in Field C - Auto irrigation activated', time: '5 minutes ago', priority: 'medium' },
-    { id: 2, type: 'info', message: 'Drone surveillance completed for tomato crop health assessment', time: '15 minutes ago', priority: 'low' },
-    { id: 3, type: 'success', message: 'AI detected optimal harvest conditions in Field A', time: '1 hour ago', priority: 'high' },
-    { id: 4, type: 'warning', message: 'Livestock feeding system requires maintenance', time: '2 hours ago', priority: 'medium' }
-  ];
-
+  const environmentalSensors = [{
+    id: 1,
+    name: 'Temperature',
+    value: '24°C',
+    icon: Thermometer,
+    color: 'text-orange-500',
+    bgColor: 'bg-orange-50',
+    status: 'optimal',
+    trend: '+2°C from yesterday',
+    location: 'Greenhouse A'
+  }, {
+    id: 2,
+    name: 'Humidity',
+    value: '68%',
+    icon: Droplets,
+    color: 'text-blue-500',
+    bgColor: 'bg-blue-50',
+    status: 'normal',
+    trend: '+5% from yesterday',
+    location: 'Field B'
+  }, {
+    id: 3,
+    name: 'Light Intensity',
+    value: '850 lux',
+    icon: Sun,
+    color: 'text-yellow-500',
+    bgColor: 'bg-yellow-50',
+    status: 'good',
+    trend: '+120 lux from yesterday',
+    location: 'Greenhouse A'
+  }, {
+    id: 4,
+    name: 'Soil Moisture',
+    value: '42%',
+    icon: Sprout,
+    color: 'text-brown-500',
+    bgColor: 'bg-amber-50',
+    status: 'low',
+    trend: '-8% from yesterday',
+    location: 'Field C'
+  }, {
+    id: 5,
+    name: 'Air Quality (CO2)',
+    value: '380 ppm',
+    icon: Wind,
+    color: 'text-green-500',
+    bgColor: 'bg-green-50',
+    status: 'excellent',
+    trend: '-20 ppm from yesterday',
+    location: 'Greenhouse B'
+  }, {
+    id: 6,
+    name: 'Water Quality pH',
+    value: '6.8',
+    icon: BarChart3,
+    color: 'text-purple-500',
+    bgColor: 'bg-purple-50',
+    status: 'optimal',
+    trend: '+0.2 from yesterday',
+    location: 'Irrigation System'
+  }];
+  const cropHealthData = [{
+    id: 1,
+    crop: 'Tomatoes',
+    health: 'excellent',
+    diseaseRisk: 'low',
+    yieldPrediction: '95%',
+    lastScanned: '2 hours ago'
+  }, {
+    id: 2,
+    crop: 'Corn',
+    health: 'good',
+    diseaseRisk: 'medium',
+    yieldPrediction: '87%',
+    lastScanned: '4 hours ago'
+  }, {
+    id: 3,
+    crop: 'Lettuce',
+    health: 'excellent',
+    diseaseRisk: 'low',
+    yieldPrediction: '92%',
+    lastScanned: '1 hour ago'
+  }, {
+    id: 4,
+    crop: 'Carrots',
+    health: 'good',
+    diseaseRisk: 'low',
+    yieldPrediction: '89%',
+    lastScanned: '3 hours ago'
+  }];
+  const livestockData = [{
+    id: 1,
+    animal: 'Dairy Cows',
+    count: 45,
+    health: 'healthy',
+    feeding: 'automated',
+    lastCheck: '30 min ago'
+  }, {
+    id: 2,
+    animal: 'Sheep',
+    count: 120,
+    health: 'healthy',
+    feeding: 'scheduled',
+    lastCheck: '1 hour ago'
+  }, {
+    id: 3,
+    animal: 'Chickens',
+    count: 200,
+    health: 'excellent',
+    feeding: 'automated',
+    lastCheck: '15 min ago'
+  }];
+  const weatherData = [{
+    parameter: 'Rainfall',
+    value: '2.4mm',
+    status: 'low',
+    forecast: '15mm expected'
+  }, {
+    parameter: 'Wind Speed',
+    value: '12 km/h',
+    status: 'normal',
+    forecast: 'Increasing to 18 km/h'
+  }, {
+    parameter: 'UV Index',
+    value: '6.2',
+    status: 'high',
+    forecast: 'Peak at 8.1 today'
+  }];
+  const automationSystems = [{
+    system: 'Irrigation Control',
+    status: 'active',
+    mode: 'auto',
+    efficiency: '94%'
+  }, {
+    system: 'Greenhouse Climate',
+    status: 'active',
+    mode: 'auto',
+    efficiency: '91%'
+  }, {
+    system: 'Livestock Feeding',
+    status: 'active',
+    mode: 'scheduled',
+    efficiency: '98%'
+  }, {
+    system: 'Pest Control',
+    status: 'standby',
+    mode: 'manual',
+    efficiency: '85%'
+  }];
+  const alerts = [{
+    id: 1,
+    type: 'warning',
+    message: 'Soil moisture low in Field C - Auto irrigation activated',
+    time: '5 minutes ago',
+    priority: 'medium'
+  }, {
+    id: 2,
+    type: 'info',
+    message: 'Drone surveillance completed for tomato crop health assessment',
+    time: '15 minutes ago',
+    priority: 'low'
+  }, {
+    id: 3,
+    type: 'success',
+    message: 'AI detected optimal harvest conditions in Field A',
+    time: '1 hour ago',
+    priority: 'high'
+  }, {
+    id: 4,
+    type: 'warning',
+    message: 'Livestock feeding system requires maintenance',
+    time: '2 hours ago',
+    priority: 'medium'
+  }];
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'healthy': case 'excellent': case 'optimal': return 'bg-green-100 text-green-800';
-      case 'good': case 'normal': case 'active': return 'bg-blue-100 text-blue-800';
-      case 'attention': case 'medium': case 'standby': return 'bg-yellow-100 text-yellow-800';
-      case 'low': case 'high': return 'bg-red-100 text-red-800';
-      default: return 'bg-gray-100 text-gray-800';
+      case 'healthy':
+      case 'excellent':
+      case 'optimal':
+        return 'bg-green-100 text-green-800';
+      case 'good':
+      case 'normal':
+      case 'active':
+        return 'bg-blue-100 text-blue-800';
+      case 'attention':
+      case 'medium':
+      case 'standby':
+        return 'bg-yellow-100 text-yellow-800';
+      case 'low':
+      case 'high':
+        return 'bg-red-100 text-red-800';
+      default:
+        return 'bg-gray-100 text-gray-800';
     }
   };
-
   const getAlertIcon = (type: string) => {
     switch (type) {
-      case 'warning': return <AlertTriangle className="h-4 w-4 text-yellow-500" />;
-      case 'success': return <CheckCircle className="h-4 w-4 text-green-500" />;
-      default: return <Clock className="h-4 w-4 text-blue-500" />;
+      case 'warning':
+        return <AlertTriangle className="h-4 w-4 text-yellow-500" />;
+      case 'success':
+        return <CheckCircle className="h-4 w-4 text-green-500" />;
+      default:
+        return <Clock className="h-4 w-4 text-blue-500" />;
     }
   };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-amber-50">
+  return <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-amber-50">
       {/* Header */}
       <header className="bg-white shadow-lg border-b-4 border-green-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -176,7 +230,7 @@ const Index = () => {
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2 text-gray-600">
                 <MapPin className="h-4 w-4" />
-                <span className="text-sm">Farm Location: California, USA</span>
+                <span className="text-sm">Farm Location: Jharkhand, India</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Wifi className="h-4 w-4 text-green-500" />
@@ -206,8 +260,7 @@ const Index = () => {
             Environmental Monitoring
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {environmentalSensors.map((sensor) => (
-              <Card key={sensor.id} className="p-4 hover:shadow-lg transition-all duration-300 bg-white border-l-4 border-green-400">
+            {environmentalSensors.map(sensor => <Card key={sensor.id} className="p-4 hover:shadow-lg transition-all duration-300 bg-white border-l-4 border-green-400">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center space-x-2">
                     <div className={`p-2 rounded-full ${sensor.bgColor}`}>
@@ -229,8 +282,7 @@ const Index = () => {
                     {sensor.trend}
                   </div>
                 </div>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
 
@@ -243,8 +295,7 @@ const Index = () => {
               Crop Health Management
             </h3>
             <div className="space-y-3">
-              {cropHealthData.map((crop) => (
-                <div key={crop.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+              {cropHealthData.map(crop => <div key={crop.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                   <div>
                     <h4 className="font-semibold text-gray-900">{crop.crop}</h4>
                     <div className="flex space-x-2 text-xs text-gray-600">
@@ -259,8 +310,7 @@ const Index = () => {
                   <Badge className={getStatusColor(crop.health)}>
                     {crop.health}
                   </Badge>
-                </div>
-              ))}
+                </div>)}
             </div>
           </Card>
 
@@ -271,8 +321,7 @@ const Index = () => {
               Livestock Monitoring
             </h3>
             <div className="space-y-3">
-              {livestockData.map((livestock) => (
-                <div key={livestock.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+              {livestockData.map(livestock => <div key={livestock.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                   <div>
                     <h4 className="font-semibold text-gray-900">{livestock.animal}</h4>
                     <div className="flex space-x-2 text-xs text-gray-600">
@@ -285,8 +334,7 @@ const Index = () => {
                   <Badge className={getStatusColor(livestock.health)}>
                     {livestock.health}
                   </Badge>
-                </div>
-              ))}
+                </div>)}
             </div>
           </Card>
         </div>
@@ -300,8 +348,7 @@ const Index = () => {
               Weather Monitoring
             </h3>
             <div className="space-y-3">
-              {weatherData.map((weather, index) => (
-                <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+              {weatherData.map((weather, index) => <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                   <div>
                     <h4 className="font-semibold text-gray-900">{weather.parameter}</h4>
                     <p className="text-sm text-gray-600">{weather.value}</p>
@@ -310,8 +357,7 @@ const Index = () => {
                   <Badge className={getStatusColor(weather.status)}>
                     {weather.status}
                   </Badge>
-                </div>
-              ))}
+                </div>)}
             </div>
           </Card>
 
@@ -322,8 +368,7 @@ const Index = () => {
               Automation Systems
             </h3>
             <div className="space-y-3">
-              {automationSystems.map((system, index) => (
-                <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+              {automationSystems.map((system, index) => <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                   <div>
                     <h4 className="font-semibold text-gray-900">{system.system}</h4>
                     <div className="flex space-x-2 text-xs text-gray-600">
@@ -335,8 +380,7 @@ const Index = () => {
                   <Badge className={getStatusColor(system.status)}>
                     {system.status}
                   </Badge>
-                </div>
-              ))}
+                </div>)}
             </div>
           </Card>
         </div>
@@ -348,8 +392,7 @@ const Index = () => {
             AI-Powered Alerts & Insights
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {alerts.map((alert) => (
-              <div key={alert.id} className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+            {alerts.map(alert => <div key={alert.id} className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
                 {getAlertIcon(alert.type)}
                 <div className="flex-1">
                   <p className="text-sm font-medium text-gray-900">{alert.message}</p>
@@ -360,8 +403,7 @@ const Index = () => {
                     </Badge>
                   </div>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </Card>
 
@@ -443,8 +485,6 @@ const Index = () => {
           </div>
         </footer>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
